@@ -1,0 +1,40 @@
+p {
+    color: red;
+    background-color: lightgreen;
+}
+
+h1 {
+    background-color: lightblue;
+    color: green;
+}
+
+#sec_para {
+    color: dodgerblue;
+    background-color: lightcyan;
+}
+
+.third_para, .heading {
+    color: brown;
+    background-color: silver;
+ }
+
+.back-color {
+    background-color: brown;
+    color: blue;
+}
+
+a:link {
+    color: red;
+}
+
+a:visited {
+    color: brown;
+}
+
+a:hover {
+    color: orange;
+}
+
+a:active {
+    color: green;
+}

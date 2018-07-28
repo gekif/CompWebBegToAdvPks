@@ -1,0 +1,19 @@
+#sec_para {
+    color: dodgerblue;
+    background-color: lightcyan;
+}
+
+.third_para, .heading {
+    color: brown;
+    background-color: silver;
+ }
+
+.back-color {
+    background-color: brown;
+    color: blue;
+}
+
+div {
+    color: blue;
+    background-color: red;
+}

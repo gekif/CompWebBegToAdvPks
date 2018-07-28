@@ -1,0 +1,9 @@
+#div1 {
+    width: 200px;
+    height: 200px;
+    background-image: url("arroyah.jpg");
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid red;
+}
