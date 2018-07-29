@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Tables</title>
+    <style type="text/css">
+
+        table {
+            width: 800px;
+        }
+
+        table, td, th {
+            /*border: 2px solid black;*/
+            border-bottom: 2px solid silver;
+            border-collapse:  collapse;
+        }
+
+        td {
+            text-align: center;
+            padding: 10px;
+            vertical-align: middle;
+        }
+
+        tbody tr:hover {
+            background-color: silver;
+        }
+
+        thead tr th {
+            background-color: brown;
+            color: white;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>S.no</th>
+                <th>Student name</th>
+                <th>Father name</th>
+                <th>Teacher name</th>
+                <th>Contact number</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>John</td>
+                <td>Doe</td>
+                <td>Mark</td>
+                <td>12345</td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>John</td>
+                <td>Doe</td>
+                <td>Mark</td>
+                <td>12345</td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>John</td>
+                <td>Doe</td>
+                <td>Mark</td>
+                <td>12345</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</body>
+</html>
