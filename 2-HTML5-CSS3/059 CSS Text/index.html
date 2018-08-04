@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Text</title>
+    <style type="text/css">
+        #div1 {
+            background-color: orange;
+            border: 1px solid black;
+            width: 200px;
+            /*float: left;*/
+            margin: 10px;
+            /*color: white;*/
+            color: black;
+            overflow: hidden;
+            /*overflow: visible;*/
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        #div2 {
+            background-color: orange;
+            border: 1px solid black;
+            width: 200px;
+            margin: 10px;
+            color: black;
+            /*overflow: hidden;*/
+            /*white-space: nowrap;*/
+            /*text-overflow: ellipsis;*/
+            word-wrap: break-word;
+        }
+
+        #div3 {
+            background-color: orange;
+            border: 1px solid black;
+            width: 200px;
+            margin: 10px;
+            color: black;
+            word-break: break-all;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="div1">The Text, The basic text without any meaning just for learning</div>
+<div id="div2">The Text, The basic text without anymeaningjustforlearning</div>
+<div id="div3">The Text, The basic text without anymeaningjustforlearning</div>
+
+</body>
+</html>
