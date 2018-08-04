@@ -1,3 +1,5 @@
 .idea/
 *.jpg
 *.png
+*.mp4
+.gitignore
