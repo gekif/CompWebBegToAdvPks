@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Transition</title>
+    <style type="text/css">
+
+        #div1 {
+            background-color: orange;
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            /*animation-name: anim1;*/
+            /*animation-duration: 2s;*/
+            animation: anim1 2s;
+        }
+
+        #div2 {
+            background-color: orange;
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            animation: anim2 2s;
+        }
+
+        #div3 {
+            background-color: orange;
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            animation: anim3 5s;
+        }
+
+        #div4 {
+            background-color: orange;
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            animation: anim4 5s;
+            border-radius: 0;
+        }
+
+
+        /*Keyframes*/
+        @keyframes anim1 {
+            from {background-color: orange;}
+            to {background-color: red;}
+        }
+
+        @keyframes anim2 {
+            0% {background-color: orange;}
+            25% {background-color: red;}
+            50%  {background-color: brown;}
+            100% {background-color: orange;}
+        }
+
+        @keyframes anim3 {
+            0% {background-color: orange; width: 200px;}
+            20% {background-color: red; width: 300px;}
+            40%  {background-color: brown; width: 400px;}
+            70%  {background-color: brown; width: 300px;}
+            100% {background-color: orange; width: 200px;}
+        }
+
+        @keyframes anim4 {
+            0% {background-color: orange; width: 200px; border-radius: 0;}
+            20% {background-color: red; width: 300px; }
+            40%  {background-color: brown; width: 400px;}
+            70%  {background-color: brown; width: 300px;}
+            100% {background-color: orange; width: 200px;}
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+
+</body>
+</html>
