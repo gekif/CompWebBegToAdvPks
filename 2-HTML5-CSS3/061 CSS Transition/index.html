@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Transition</title>
+    <style type="text/css">
+
+        #div1 {
+            background-color: orange;
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            /*transition: background-color 2s;*/
+            /*transition: background-color 2s, width 2s;*/
+            /*transition: background-color 2s, width 5s;*/
+            transition: background-color 2s, width 5s linear;
+        }
+
+        #div1:hover {
+            /*background-color: red;*/
+            background-color: brown;
+            /*width: 300px*/
+            width: 400px
+        }
+
+        #div2 {
+            background-color: orange;
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            transition: background-color 2s, width 5s ease-in;
+        }
+
+        #div2:hover {
+            background-color: brown;
+            width: 400px
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="div1"></div>
+<div id="div2"></div>
+
+</body>
+</html>
