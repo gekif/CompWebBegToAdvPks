@@ -5,3 +5,6 @@
 *.mp3
 *.gitignore
 images/
+jquery.js
+bootstrap.js
+bootstrap.css
