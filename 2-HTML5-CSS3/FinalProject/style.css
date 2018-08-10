@@ -3,9 +3,94 @@
     padding: 0;
 }
 
-#container {
-    background-color: silver;
-    margin: 0 auto;
-    width: 1000px;
-    height: 1000px;
+.clearfix {
+    clear: both;
 }
+
+#container {
+    /*background-color: silver;*/
+    background-color: white;
+    margin: 0 auto;
+    width: 100%;
+    font-family: Arial;
+}
+
+
+    header {
+        background: url(images/background.jpg);
+        width: 100%;
+        color: white;
+    }
+
+    #left_header {
+        padding: 50px 0;
+        float: left;
+    }
+    
+    nav {
+        float: right;
+    }
+
+     nav ul {
+
+     }
+
+     nav ul li {
+         float: left;
+         padding: 57px 30px;
+         font-size: 20px;
+         font-weight: bold;
+         margin: 0 2px;
+         overflow: hidden;
+     }
+
+     nav ul li:hover{
+         background-color: orange;
+     }
+
+main{}
+    .main_img {
+        width: 100%;
+        height: 100%;
+    }
+
+section {
+    padding: 0 5%;
+}
+
+    section h2 {
+        text-align: center;
+        font-size: 60px;
+        text-shadow: 0 0 5px black;
+        padding: 50px;
+        color: silver;
+    }
+
+article {
+    width: 23%;
+    margin: 20px 1% 20px 0;
+    float: left;
+    color: #666666;
+}
+    .margin_left {
+        margin-left: 2%;
+    }
+
+    .margin_right {
+        margin-right: 0;
+    }
+
+    article img {
+        width: 100%;
+    }
+
+    .article_title {
+        text-align: center;
+        font-size: 30px;
+        margin: 20px;
+        font-weight: bold;
+    }
+
+    .article_description {
+        text-align: center;
+    }
