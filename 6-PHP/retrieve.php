@@ -10,14 +10,15 @@ while($rows = mysqli_fetch_assoc($run) ) {
 }*/
 
 echo "
-    <table>
+    <table border='1'>
         <thead>
             <tr>
                 <th>s.No</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Password</th>
-                <th>Contact Number </th>
+                <th>Contact Number</th>
+                <th>Date</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,7 @@ while ($rows = mysqli_fetch_assoc($run)) {
                 <td>{$rows['email']}</td>
                 <td>{$rows['password']}</td>
                 <td>{$rows['contact_number']}</td>
+                <td>{$rows['date']}</td>
             </tr>
         ";
 
