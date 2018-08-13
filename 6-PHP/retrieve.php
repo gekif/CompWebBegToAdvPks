@@ -1,6 +1,12 @@
 <?php
 
-include "connection.php";
+$host = 'localhost';
+$username = 'root';
+$password = 'admin';
+$database = 'learn_php';
+
+$conn = mysqli_connect($host, $username, $password, $database);
+
 
 $sql = "SELECT * FROM users";
 $run = mysqli_query($conn, $sql);
