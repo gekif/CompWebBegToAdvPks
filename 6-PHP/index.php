@@ -49,7 +49,7 @@ $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
     </form>
     <?php
 
-    $sql = "SELECT name, email, contact_number, DATE_FORMAT(DATE(date), '%d-%m-%Y') as date FROM users";
+    $sql = "SELECT id, name, email, contact_number, DATE_FORMAT(DATE(date), '%d-%m-%Y') as date FROM users";
     $run = mysqli_query($conn, $sql);
     /*
     while($rows = mysqli_fetch_assoc($run) ) {
@@ -65,6 +65,8 @@ $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
                 <th>Email</th>
                 <th>Contact Number</th>
                 <th>Joined Date</th>
+                <th>Edit</th>
+                <th>Delete </th>
             </tr>
         </thead>
         <tbody>
@@ -78,6 +80,8 @@ $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
                 <td>{$rows['email']}</td>
                 <td>{$rows['contact_number']}</td>
                 <td>{$rows['date']}</td>
+                <td><a href='#' class='btn btn-success'>Edit</a></td>
+                <td><a href='index.php?del_id={$rows['id']}' class='btn btn-danger'>Delete</a></td>
             </tr>
         ";
         $c++;
@@ -106,5 +110,12 @@ if (isset($_POST['submit'])) {
     if (mysqli_query($conn, $ins_sql)) { ?>
         <script>window.location = "index.php";</script>
     <?php }
+}
+
+if (isset($_GET['del_id'])) {
+    $del_sql = "DELETE FROM users WHERE id = '{$_GET['del_id']}'";
+    if (mysqli_query($conn, $del_sql)) { ?>
+        <script>window.location = "index.php";</script>
+<?php }
 }
 ?>
