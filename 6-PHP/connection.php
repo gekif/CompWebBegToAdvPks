@@ -1,10 +1,10 @@
 <?php
-$host = 'localhost';
-$username = 'root';
-$password = 'admin';
-$database = 'learn_php';
+const HOST = 'localhost';
+const USERNAME = 'root';
+const PASSWORD = 'admin';
+const DATABASE = 'learn_php';
 
-$conn = mysqli_connect($host, $username, $password, $database);
+$conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
 ?>
 
 <!doctype html>
@@ -22,7 +22,31 @@ $conn = mysqli_connect($host, $username, $password, $database);
 </head>
 <body>
 <div class="container">
-    <div class="jumbotron"></div>
+    <div class="jumbotron">
+        <h2>Simple CRUD (PHP With MySQL)</h2>
+    </div>
+    <h2>Insert New User</h2>
+    <form class="col-md-6" method="post">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="contact-number">Contact Number</label>
+            <input type="number" class="form-control" name="contact-number">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="submit" class="btn btn-danger" name="submit">
+        </div>
+    </form>
     <?php
 
     $sql = "SELECT * FROM users";
@@ -65,7 +89,23 @@ $conn = mysqli_connect($host, $username, $password, $database);
     ?>
 </div>
 
-
-
 </body>
 </html>
+
+<?php
+if (isset($_POST['submit'])) {
+    $username = mysqli_real_connect($conn, strip_tags($_POST['username']));
+    $email = mysqli_real_connect($conn, strip_tags($_POST['email']));
+    $password = mysqli_real_connect($conn, strip_tags($_POST['password']));
+    if ($_POST['contact-number']) {
+         $contactNumber = mysqli_real_connect($conn, strip_tags($_POST['contact-number']));
+    }
+    $date = date('Y-m-d');
+
+    $ins_sql = "INSERT INTO users (name, email, password, contact_number, date) 
+                VALUES('$username', '$email', '$password', '$contactNumber', $date)";
+
+    $run = mysqli_query($conn, $ins_sql);
+
+}
+?>
