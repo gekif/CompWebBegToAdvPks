@@ -49,7 +49,7 @@ $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
     </form>
     <?php
 
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT name, email, contact_number, DATE_FORMAT(DATE(date), '%d-%m-%Y') as date FROM users";
     $run = mysqli_query($conn, $sql);
     /*
     while($rows = mysqli_fetch_assoc($run) ) {
@@ -63,25 +63,24 @@ $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
                 <th>s.No</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Contact Number</th>
-                <th>Date</th>
+                <th>Joined Date</th>
             </tr>
         </thead>
         <tbody>
         ";
+    $c = 1;
     while ($rows = mysqli_fetch_assoc($run)) {
         echo "
             <tr>
-                <td>{$rows['id']}</td>
+                <td>$c</td>
                 <td>{$rows['name']}</td>
                 <td>{$rows['email']}</td>
-                <td>{$rows['password']}</td>
                 <td>{$rows['contact_number']}</td>
                 <td>{$rows['date']}</td>
             </tr>
         ";
-
+        $c++;
     }
     echo  "</tbody>
 </table>";
@@ -94,18 +93,18 @@ $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
 
 <?php
 if (isset($_POST['submit'])) {
-    $username = mysqli_real_connect($conn, strip_tags($_POST['username']));
-    $email = mysqli_real_connect($conn, strip_tags($_POST['email']));
-    $password = mysqli_real_connect($conn, strip_tags($_POST['password']));
+    $username = mysqli_real_escape_string($conn, strip_tags($_POST['username']));
+    $email = mysqli_real_escape_string($conn, strip_tags($_POST['email']));
+    $password = mysqli_real_escape_string($conn, strip_tags($_POST['password']));
     if ($_POST['contact-number']) {
-         $contactNumber = mysqli_real_connect($conn, strip_tags($_POST['contact-number']));
+         $contactNumber = mysqli_real_escape_string($conn, strip_tags($_POST['contact-number']));
     }
-    $date = date('Y-m-d');
 
-    $ins_sql = "INSERT INTO users (name, email, password, contact_number, date) 
-                VALUES('$username', '$email', '$password', '$contactNumber', $date)";
+    $ins_sql = "INSERT INTO users (name, email, password, contact_number) 
+                VALUES('$username', '$email', '$password', '$contactNumber')";
 
-    $run = mysqli_query($conn, $ins_sql);
-
+    if (mysqli_query($conn, $ins_sql)) { ?>
+        <script>window.location = "index.php";</script>
+    <?php }
 }
 ?>
