@@ -6,7 +6,12 @@
     <script>
         function ajax_func() {
             let xmlhttp = new XMLHttpRequest();
-
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    let receiver = document.getElementById('get_data');
+                    receiver.innerHTML = xmlhttp.responseText;
+                }
+            };
             xmlhttp.open('GET', 'process_ajax.php', true);
             xmlhttp.send();
         }
@@ -14,6 +19,6 @@
 </head>
 <body>
     <button onclick="ajax_func();">Click to retrieve data</button>
-    <div id="get_data"></div>
+    <div id="get_data">The Receiver DIV</div>
 </body>
 </html>
