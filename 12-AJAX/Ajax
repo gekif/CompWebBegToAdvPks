@@ -1,0 +1,15 @@
+readyState
+
+0: Request not initialized
+1: Server Connection Established
+2: Request Received
+3: Processing Request
+4: Request Finished and Response is Ready
+
+
+Status
+
+200: Ok
+403: Forbidden
+404: Page Not Found
+500: Server Error
