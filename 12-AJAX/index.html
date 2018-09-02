@@ -12,13 +12,13 @@
                     receiver.innerHTML = xmlhttp.responseText;
                 }
             };
-            xmlhttp.open('GET', 'process_ajax.php', true);
+            xmlhttp.open('GET', 'process_ajax.php?var1=John&var2=Bananas', true);
             xmlhttp.send();
         }
     </script>
 </head>
 <body>
     <button onclick="ajax_func();">Click to retrieve data</button>
-    <div id="get_data" style="font-weight: bold;">The Receiver DIV</div>
+    <div id="get_data">The Receiver DIV</div>
 </body>
 </html>
