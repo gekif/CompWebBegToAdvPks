@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <title>Learn Ajax</title>
     <script>
-        function ajax_func() {
+        function ajax_func(user_input) {
+
             let xmlhttp = new XMLHttpRequest();
-            let user_input = document.getElementById('user_input').value;
-            // alert(user_input);
+
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                     document.getElementById('ret_data').innerHTML = xmlhttp.responseText;
                 }
             };
+
             xmlhttp.open('GET', 'process_ajax.php?var1=' + user_input, true);
             xmlhttp.send();
         }
@@ -20,7 +21,7 @@
 </head>
 <body>
     <button id="btn" onclick="ajax_func();">Click to submit data</button>
-    <input type="text" id="user_input" onkeyup="ajax_func();">
+    <input type="text" onkeyup="ajax_func(this.value);">
     <div id="ret_data"></div>
 </body>
 </html>
