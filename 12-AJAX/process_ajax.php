@@ -3,7 +3,13 @@
 include 'db.php';
 
 if (isset($_REQUEST['submit_form'])) {
-    echo 'This is good ' . $_REQUEST['username'];
+    $ins_sql = "INSERT INTO ajax.users (u_name, u_email, u_number, u_notes) VALUES (
+                    '$_REQUEST[username]', 
+                    '$_REQUEST[email]', 
+                    '$_REQUEST[contactnumber]', 
+                    '$_REQUEST[notes]'
+                )";
+    $run_sql = mysqli_query($conn, $ins_sql);
 }
 
 $sql = "SELECT * FROM ajax.users";
