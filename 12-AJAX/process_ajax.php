@@ -1,20 +1,24 @@
 <?php
 
-$countries = [
-    'Indonesia',
-    'Malaysia',
-    'Thailand',
-    'Germany'
-];
+include 'db.php';
+
+
+$sql = "SELECT * FROM ajax.users";
+$run = mysqli_query($conn, $sql);
+
 $c = 1;
-echo '<br>';
-foreach ($countries as $country) {
-    /*    echo $c . '. ' . $country . '<br>';
-        $c++;*/
-    if (isset($_REQUEST['var1'])) {
-        if ($_REQUEST['var1'] == $country) {
-            echo '<div style="color: green;">' . $_REQUEST['var1'] . ' is in the list</div>';
-        }
-    }
+
+while ($rows = mysqli_fetch_assoc($run)) {
+    echo "
+        <tr>
+            <td>$c</td>
+            <td>$rows[u_name]</td>
+            <td>$rows[u_email]</td>
+            <td>$rows[u_number]</td>
+            <td>$rows[u_notes]</td>
+            <td><button class=\"btn btn-success\">Edit</button> <button class=\"btn btn-danger\">Delete</button></td>
+        </tr>
+    ";
+    $c++;
 }
 

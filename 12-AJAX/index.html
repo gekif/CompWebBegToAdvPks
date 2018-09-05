@@ -15,7 +15,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
-        function ajax_func(user_input) {
+        function ajax_func() {
 
             let xmlhttp = new XMLHttpRequest();
 
@@ -25,15 +25,14 @@
                 }
             };
 
-            xmlhttp.open('GET', 'process_ajax.php?var1=' + user_input, true);
+            xmlhttp.open('GET', 'process_ajax.php', true);
             xmlhttp.send();
         }
     </script>
 </head>
-<body>
+<body onload="ajax_func();">
     <div class="container">
-        <br>
-        <br>
+        <br><br>
         <button class="btn btn-primary btn-lg" data-toggle="modal" data-backdrop="static" data-target="#add_new_person">Add New Person</button><br><br>
 
         <div class="modal fade" id="add_new_person">
@@ -86,31 +85,8 @@
                     <th>Edit / Delete</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Fikar</td>
-                    <td>fikar@gmail.com</td>
-                    <td>081278271827</td>
-                    <td>Ganteng</td>
-                    <td><button class="btn btn-success">Edit</button> <button class="btn btn-danger">Delete</button></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Febrina</td>
-                    <td>febrina@gmail.com</td>
-                    <td>081278271827</td>
-                    <td>Cantik</td>
-                    <td><button class="btn btn-success">Edit</button> <button class="btn btn-danger">Delete</button></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Rio</td>
-                    <td>rio@gmail.com</td>
-                    <td>081278271827</td>
-                    <td>Ganteng</td>
-                    <td><button class="btn btn-success">Edit</button> <button class="btn btn-danger">Delete</button></td>
-                </tr>
+            <tbody id="ret_data">
+
             </tbody>
         </table>
     </div>
