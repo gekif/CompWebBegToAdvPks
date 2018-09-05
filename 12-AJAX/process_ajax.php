@@ -2,6 +2,9 @@
 
 include 'db.php';
 
+if (isset($_REQUEST['submit_form'])) {
+    echo 'This is good ' . $_REQUEST['username'];
+}
 
 $sql = "SELECT * FROM ajax.users";
 $run = mysqli_query($conn, $sql);
