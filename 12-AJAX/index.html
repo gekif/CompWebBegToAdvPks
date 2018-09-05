@@ -15,6 +15,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
+        // Ajaxify the whole data from the process_ajax.php
         function ajax_func() {
 
             xmlhttp = new XMLHttpRequest();
@@ -29,6 +30,7 @@
             xmlhttp.send();
         }
 
+        // Inserting data to database
         function submit_form() {
             let user_form = document.getElementById('user_form');
 
@@ -55,6 +57,19 @@
             $('#add_new_person').modal('hide');
             user_form.reset();
             return false;
+        }
+
+        // Deleting data from database
+        function delete_func(user_id) {
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    document.getElementById('ret_data').innerHTML = xmlhttp.responseText;
+                }
+            };
+
+            xmlhttp.open('GET', 'process_ajax.php?del_id=' + user_id, true);
+            xmlhttp.send();
         }
     </script>
 </head>
