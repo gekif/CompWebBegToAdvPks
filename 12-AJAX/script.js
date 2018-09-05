@@ -22,12 +22,11 @@ function ajax_func(process_name = 'process_ajax.php') {
 
 // Inserting data to database
 function submit_form() {
-    let user_form = document.getElementById('user_form');
-
     let username = document.getElementById('username').value,
         email = document.getElementById('email').value,
         contactNumber = document.getElementById('contactnumber').value,
         notes = document.getElementById('notes').value;
+    let user_form = document.getElementById('user_form');
 
     ajax_func('process_ajax.php?submit_form=yes' +
         '&username=' + username +
