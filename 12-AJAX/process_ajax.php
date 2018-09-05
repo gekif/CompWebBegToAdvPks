@@ -30,7 +30,17 @@ while ($rows = mysqli_fetch_assoc($run)) {
             <td>$rows[u_email]</td>
             <td>$rows[u_number]</td>
             <td>$rows[u_notes]</td>
-            <td><button class=\"btn btn-success\">Edit</button> <button class=\"btn btn-danger\" onclick=\"delete_func('$rows[u_id]');\">Delete</button></td>
+            <td><button class=\"btn btn-success\" data-toggle='modal' data-target='#edit_person'>Edit</button> <button class=\"btn btn-danger\" onclick=\"delete_func('$rows[u_id]');\">Delete</button></td>
+            
+            <div class='modal fade' id='edit_person'>
+                <div class='modal-dialog'>
+                    <div class='content'>
+                      <div class='modal-header'>Header</div>  
+                      <div class='modal-body'>Body</div>  
+                      <div class='modal-footer'>Footer</div>  
+                    </div>
+                </div>
+            </div>
         </tr>
     ";
     $c++;
