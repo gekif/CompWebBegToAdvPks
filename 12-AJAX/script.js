@@ -43,6 +43,28 @@ function submit_form() {
 
 
 // Deleting data from database
-function delete_func(user_id) {
-    ajax_func('process_ajax.php?del_id=' + user_id);
+function delete_func(del_id) {
+    ajax_func('process_ajax.php?del_id=' + del_id);
+}
+
+// Editing data from database
+function  edit_form(edit_id) {
+    let edit_username = document.getElementById('edit_username' + edit_id).value,
+        edit_email = document.getElementById('edit_email' + edit_id).value,
+        edit_contactnumber = document.getElementById('edit_contactnumber' + edit_id).value,
+        edit_notes = document.getElementById('edit_notes' + edit_id).value;
+
+    let edit_form = document.getElementById('edit_form' + edit_id);
+
+    ajax_func('process_ajax.php?edit_form=yes&edit_id=' + edit_id +
+        '&edit_username=' + edit_username +
+        '&edit_email=' + edit_email +
+        '&edit_contactnumber=' + edit_contactnumber +
+        '&edit_notes=' + edit_notes
+    );
+
+    $('#edit_person' + edit_id).modal('hide');
+    edit_form.reset();
+
+    return false
 }
