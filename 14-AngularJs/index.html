@@ -6,22 +6,27 @@
     <script src="angular-1.5.5/angular.js"></script>
 </head>
 
-<body ng-app="con1" ng-controller="newCtrl">
-<input type="text" ng-model="car1" placeholder="car1">
-<input type="text" ng-model="car2" placeholder="car2">
-<div>{{ car1 + ' ' + car2 }}</div>
-<div>{{ bothCars() }}</div>
-
-<script>
-    let con1 = angular.module('con1', []);
-    con1.controller('newCtrl', function ($scope) {
-        $scope.car1 = 'Toyota';
-        $scope.car2 = 'BMW';
-        $scope.bothCars = function () {
-            return $scope.car1 + ' ' + $scope.car2
-        };
-    });
-</script>
+<body ng-app="con2" ng-controller="newCtr2">
+<ul>
+    <li ng-repeat="x in people">
+        {{ x.name }}
+    </li>
+</ul>
+<table border="1">
+    <tr>
+        <th>S.no</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Skill</th>
+    </tr>
+    <tr ng-repeat="x in people">
+        <td>{{ $index + 1 }}</td>
+        <td>{{ x.name }}</td>
+        <td>{{ x.age }}</td>
+        <td>{{ x.skill }}</td>
+    </tr>
+</table>
+<script src="app/controller.js"></script>
 
 </body>
 </html>
