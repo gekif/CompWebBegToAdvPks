@@ -6,14 +6,27 @@
     <script src="angular-1.5.5/angular.js"></script>
 </head>
 
-<body ng-app="con2" ng-controller="newCtrl2">
-<input type="text" ng-model="val1">
-<ul>
-    <li ng-repeat="x in people | filter: val1 ">
-        {{ x }}
-    </li>
-</ul>
-<script src="./controller.js"></script>
+<body ng-app="con" ng-controller="newCtrl">
+    {{ myLocation }}
+    <h1>{{ myHeader }}</h1>
+    <h2> {{ time }} </h2>
+
+<script>
+    let con = angular.module('con', []);
+
+    con.controller('newCtrl', function ($scope, $location, $timeout, $interval) {
+        $scope.myLocation = $location.absUrl();
+        $scope.myHeader = 'This is the header';
+        $timeout(function () {
+            $scope.myHeader = 'It is update header';
+        }, 1000);
+
+        $scope.time = new Date().toLocaleTimeString();
+        $interval(function () {
+            $scope.time = new Date().toLocaleTimeString();
+        }, 1000);
+    });
+</script>
 
 </body>
 </html>
