@@ -7,14 +7,14 @@
     util
 */
 
-const http = require('http');
+var http = require('http');
+var fs = require('fs');
 
 function onRequest(request, response) {
-    console.log("The request from the client: " + request.url);
-    response.writeHead(200, {'Content-Type' : 'text/plain'});
-    response.write('Hello World');
-    response.end();
+    console.log('We got request from client');
+    response.writeHead(200, {'Content-Type' : 'text/html'});
+    fs.createReadStream('./index.html').pipe(response);
 }
 
 http.createServer(onRequest).listen(8081);
-console.log("This server is working successfully");
+console.log('The server is working successfully');
