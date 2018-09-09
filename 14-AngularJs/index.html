@@ -7,27 +7,12 @@
 </head>
 
 <body ng-app="con2" ng-controller="newCtrl2">
+<input type="text" ng-model="val1">
 <ul>
-    <li ng-repeat="x in people">
-        {{ x.name | lowercase }}
+    <li ng-repeat="x in people | filter: val1 ">
+        {{ x }}
     </li>
 </ul>
-<table border="1">
-    <tr>
-        <th>S.no</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Skill</th>
-        <th>Salary</th>
-    </tr>
-    <tr ng-repeat="x in people | orderBy: 'salary' ">
-        <td>{{ $index + 1 }}</td>
-        <td>{{ x.name | uppercase }}</td>
-        <td>{{ x.age }}</td>
-        <td>{{ x.skill | lowercase }}</td>
-        <td>{{ x.salary | currency }}</td>
-    </tr>
-</table>
 <script src="./controller.js"></script>
 
 </body>
