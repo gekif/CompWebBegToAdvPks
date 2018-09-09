@@ -4,22 +4,81 @@
     <meta charset="UTF-8">
     <title>Learn AngularJs</title>
     <script src="angular-1.5.5/angular.js"></script>
+    <style>
+        .first {
+            background-color: lightblue;
+        }
+
+        .second {
+            background-color: lightgreen;
+        }
+    </style>
 </head>
 
-<body ng-app ng-init="val1=6; val2=3">
+<body ng-app ng-init="val1=5; val2=7">
     <div>Dzulfikar Maulana</div>
-    <div> 5 + 5 = {{5 + 5}}</div>
+    <div> 5 + 5 = {{ 5 + 5 }}</div>
     <div> 5 + 5 = <span  ng-bind="5 + 5"></span> </div>
 
-    <br>
-
-    <div>
-        <label>Val1</label><input type="number" ng-model="val1" value="{{val1}}">
-        <label>Val2</label><input type="number" ng-model="val2" value="{{val2}}">
-        <div>Val1 value: {{val1}}</div>
-        <div>Val2 value: {{val2}}</div>
-        <div>The result is {{val1 * val2}}</div>
+    <br><input type="text" ng-model="new_class">
+    <div ng-class="new_class">
+        <label>Val1</label><input type="number" ng-model="val1" value="{{ val1 }}">
+        <label>Val2</label><input type="number" ng-model="val2" value="{{ val2 }}">
+        <div>Val1 value: {{ val1 }}</div>
+        <div>Val2 value: {{ val2 }}</div>
+        <div>The result is {{ val1 * val2 }}</div>
     </div>
 
+    <!-- ng show-->
+    <div>
+        <input type="checkbox" ng-model="show_hide"><label>Check it out</label>
+        <div ng-show="show_hide">
+            <h2>Show or hide</h2>
+            <p>We can hide or show the HTML content using some Angular.js directives</p>
+        </div>
+    </div>
+
+    <!-- ng-open -->
+    <div>
+        <input type="checkbox" ng-model="open_close"><label>Open or close the details tag</label>
+        <details ng-open="open_close">
+            <summary>The summary</summary>
+            <p>This is the detailed area</p>
+        </details>
+    </div>
+
+    <!-- ng-selected -->
+    <div>
+        <label>Select any option: </label><input type="checkbox" ng-model="selected_or_no">
+        <select>
+            <option>Select any item</option>
+            <option>Duit</option>
+            <option ng-selected="selected_or_no">Tempe</option>
+            <option>Tahu</option>
+            <option>Daging</option>
+        </select>
+    </div>
+
+    <!-- ng-required -->
+    <div>
+        <form>
+            <label>Make required: </label><input type="checkbox" ng-model="req_or_no">
+            <input type="text" ng-required="req_or_no">
+            <button>Submit</button>
+        </form>
+    </div>
+
+    <!-- ng-repeat -->
+    <div ng-init="cars=['Toyota', 'Timor', 'Waaa']">
+        <ul>
+            <li ng-repeat="x in cars">{{ x }}</li>
+        </ul>
+    </div>
+
+    <!-- ng-list -->
+    <div>
+        <label>Create an array: </label><input ng-model="create_array" ng-list>
+        <div> {{ create_array }}</div>
+    </div>
 </body>
 </html>
