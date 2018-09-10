@@ -10,20 +10,19 @@
 <div ng-app="mod" ng-controller="con">
     <ul>
         <li ng-repeat="x in person">
-            {{ x.Name + ' ' + x.Age }}
+            {{ x.Name }}
         </li>
     </ul>
 
     <table border="1">
         <tr>
             <th>Name</th>
-            <th>Age</th>
+            <!--<th>Age</th>-->
             <th>City</th>
             <th>Country</th>
         </tr>
         <tr ng-repeat="x in person">
             <td>{{ x.Name }}</td>
-            <td>{{ x.Age }}</td>
             <td>{{ x.City }}</td>
             <td>{{ x.Country }}</td>
         </tr>
@@ -33,8 +32,8 @@
 <script>
     let mod = angular.module('mod', []);
     mod.controller('con', function ($scope, $http) {
-        $http.get('person.php').then(function (response) {
-            $scope.person = response.data.people;
+        $http.get('db.php').then(function (response) {
+            $scope.person = response.data.person;
         });
     });
 </script>
