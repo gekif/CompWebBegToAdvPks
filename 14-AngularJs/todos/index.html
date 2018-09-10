@@ -10,20 +10,43 @@
     todolist = angular.module("todolist", []);
     todolist.controller("t_con", function ($scope) {
         $scope.list = [];
+
         $scope.add_item = function () {
-            $scope.list.push($scope.get_item);
+            $scope.error_msg = "";
+            if (!$scope.get_item) {
+                return;
+            }
+            if ($scope.list.indexOf($scope.get_item) === -1) {
+                $scope.list.push($scope.get_item);
+            } else {
+                $scope.error_msg = "You're duplicating things";
+            }
+            $scope.get_item = "";
         };
+
         $scope.remove_item = function (remove_id) {
             $scope.list.splice(remove_id, 1);
+            $scope.error_msg = "";
+        };
+
+        $scope.myFunct = function (keyEvent) {
+            if (keyEvent.which === 13) {
+                $scope.add_item();
+            }
         }
+
     });
 </script>
+
+<h1>You&apos;re Task List</h1>
+
 <div ng-app="todolist" ng-controller="t_con">
     <ul>
         <li ng-repeat="x in list">{{ x }}<span ng-click="remove_item($index);">&times;</span></li>
     </ul>
-    <input type="text" ng-model="get_item">
+    <input type="text" ng-model="get_item" ng-keypress="myFunct($event)">
     <button ng-click="add_item();">Add Item</button>
+    <div>{{ error_msg }}</div>
 </div>
 
 </body>
