@@ -9,15 +9,18 @@
 <script>
     todolist = angular.module("todolist", []);
     todolist.controller("t_con", function ($scope) {
-        $scope.list = ['Shopping', 'Buying Max'];
+        $scope.list = [];
         $scope.add_item = function () {
             $scope.list.push($scope.get_item);
         };
+        $scope.remove_item = function (remove_id) {
+            $scope.list.splice(remove_id, 1);
+        }
     });
 </script>
 <div ng-app="todolist" ng-controller="t_con">
     <ul>
-        <li ng-repeat="x in list">{{ x }}</li>
+        <li ng-repeat="x in list">{{ x }}<span ng-click="remove_item($index);">&times;</span></li>
     </ul>
     <input type="text" ng-model="get_item">
     <button ng-click="add_item();">Add Item</button>
